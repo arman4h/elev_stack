@@ -5,7 +5,7 @@ from glob import glob
 pkg = 'elev_bringup'
 setup(
     name=pkg,
-    version='0.1.0',
+    version='0.2.0',
     packages=[pkg],
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + pkg]),
@@ -16,8 +16,6 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     entry_points={'console_scripts': [
-        'check_floor = elev_bringup.check_floor:main',
         'elevation_mapper = elev_bringup.mapper_node:main',
-        'fake_lidar = elev_bringup.fake_lidar:main',
     ]},
 )
