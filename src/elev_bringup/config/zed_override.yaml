@@ -1,0 +1,7 @@
+# Passed to zed_wrapper as ros_params_override_path. Verify key names against the
+# common*.yaml of the wrapper version you built; they change between releases.
+/**:
+  ros__parameters:
+    pos_tracking:
+      publish_map_tf: false   # we use 'odom' as the fixed frame, not 'map'
+      imu_fusion: true

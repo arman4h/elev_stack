@@ -1,0 +1,20 @@
+services:
+  elev:
+    build: { context: ., dockerfile: docker/Dockerfile }
+    image: elev-stack:jp5
+    runtime: nvidia
+    network_mode: host      # Livox UDP + DDS discovery
+    ipc: host
+    privileged: true        # ZED USB + /dev access
+    stdin_open: true
+    tty: true
+    environment:
+      - ROS_DOMAIN_ID=0
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///ws/src/elev_bringup/config/cyclonedds.xml
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /dev:/dev
+      - ./src/elev_bringup:/ws/src/elev_bringup   # edit on host; colcon uses --symlink-install
+    command: ros2 launch elev_bringup full.launch.py backend:=cuda

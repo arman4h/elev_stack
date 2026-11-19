@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>elev_bringup</name>
+  <version>0.1.0</version>
+  <description>Bringup, mount TF and calibration checks for Livox (45 deg pitch) + ZED 2i elevation mapping</description>
+  <maintainer email="you@example.com">Arman</maintainer>
+  <license>MIT</license>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>sensor_msgs_py</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <!-- runtime, built separately in the workspace: livox_ros_driver2, zed_wrapper -->
+  <export><build_type>ament_python</build_type></export>
+</package>
